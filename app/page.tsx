@@ -1,10 +1,9 @@
 
+import React from "react";
 
-export default function Home() {
-  return (
-    <main  className="">
-      aaaa
-    </main>
-  )
-}
+const Home: React.FC = () => {
 
+
+  return <main >asdasd</main>;
+};
+export default Home;

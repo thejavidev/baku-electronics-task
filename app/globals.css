@@ -2,3 +2,27 @@
 @tailwind components;
 @tailwind utilities;
 
+:root{
+    --category:#f5f5f5;
+    --body:#fff;
+}
+
+body{
+    overflow-x: hidden;
+}
+body,html{
+    background-color: var(--body);
+}
+.item:hover img{
+    filter:  invert(21%) sepia(100%) saturate(6772%) hue-rotate(357deg) brightness(113%) contrast(117%);
+}
+.item .sub_menu{
+    transform: translate(-120%);
+}
+.open{
+    transform: translate(0);
+}
+
+.translate-1{
+    transform: translate(0) !important;
+}
