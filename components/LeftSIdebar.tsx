@@ -1,12 +1,12 @@
 "use client";
 import { Categories } from "@/type/Type";
 import Link from "next/link";
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { FaAngleDoubleLeft, FaAngleDoubleRight } from "react-icons/fa";
 
 const LeftSIdebar: React.FC = () => {
   const leftMenu = useRef<any>();
-  const subMenu = useRef<any>();
+  const alt_menu = useRef<any>();
   const [menuWidth, setMenuWidth] = useState("w-72");
   const category: Categories = [
     {
@@ -288,17 +288,29 @@ const LeftSIdebar: React.FC = () => {
       icon: "/navbar/pan.svg",
     },
   ];
+
+  const handleAltMenuVisibility = () => {
+    setTimeout(() => {
+      const altMenu = alt_menu.current;
+      if (altMenu) {
+        altMenu.classList.add("opacity-100");
+      }
+    }, 500);
+  };
+
   const openadnclose = () => {
     setMenuWidth((prevWidth) => (prevWidth === "w-72" ? "w-full" : "w-72"));
+    handleAltMenuVisibility();
   };
-  const openSUbMenu =()=>{
-    console.log(subMenu.current.classList)
-    subMenu.current.classList.add("open")
-  }
+
+  const open = () => {
+    setMenuWidth("w-full");
+    handleAltMenuVisibility();
+  };
   return (
     <>
       <main
-        className={`fixed top-0 left-0 h-full bg-[--category]  ${menuWidth} px-3 py-3 transition-all`}
+        className={`fixed top-0 left-0 md:left-[-100%] h-full bg-[--category] z-[200] ${menuWidth} px-3 py-3 transitions `}
         ref={leftMenu}
       >
         <div className="flex flex-col">
@@ -309,7 +321,7 @@ const LeftSIdebar: React.FC = () => {
             <button
               onClick={openadnclose}
               type="button"
-              className="bg-[#e6e6e6] px-3 py-3 rounded-xl shadow-[0px_10px_19px_0px_rgba(0_0_0_0.03)]"
+              className="bg-[#e6e6e6] px-3 py-3 rounded-xl shadow-[0px_10px_19px_0px_rgba(0_0_0_0.03)] z-50"
             >
               {menuWidth === "w-72" ? (
                 <FaAngleDoubleRight />
@@ -319,43 +331,83 @@ const LeftSIdebar: React.FC = () => {
             </button>
           </div>
           <div className="flex items-center mt-10 pl-3 ">
-            <ul className={`flex flex-col gap-2 items-start  ${menuWidth === 'w-full' ? 'border-r-2 pr-3' :'border-0'}`}>
+            <ul
+              className={`flex flex-col gap-2 items-start  ${
+                menuWidth === "w-full" ? "border-r-2 pr-3" : "border-0"
+              }`}
+            >
               {category &&
-                category?.map((item, i) => (
-                  <li
-                    key={i}
-                    onClick={openSUbMenu}
-                    className={`${
-                      menuWidth === "w-full" ? "pl-3 " : "pl-4"
-                    } relative flex gap-3 items-center capitalize item  transition-all hover:font-medium hover:bg-[#fff] px-3 py-3 w-full hover:rounded-2xl cursor-pointer`}
-                  >
-                    <img
-                      src={item?.icon}
-                      alt={`Icon for ${item?.name}`}
-                      className={`w-6 h-6 `}
-                    />
-                    <span className={``}>{item?.name}</span>
-                    <ul ref={subMenu} className={` transition-all flex ease-linear delay-200 bg-[--category] h-full fixed top-0  left-[18rem] -z-10  px-3 py-28 w-full`}>
-                      {
-                        item?.submenu?.map((curr,i)=>(
-                          <li key={i}>
-                            <span>{curr?.name}</span>
-
-                            <div>
-                              {
-                                curr&& curr?.categoryname?.map((elem,i)=>(
-                                  <h3 key={i}>{elem?.name}</h3>
-                                ))
-                              }
-                            </div>
-                          </li>
-                        ))
-                      }
-                    </ul>
-                  </li>
-                ))}
+                category?.map((item, i) => {
+                  return (
+                    <li
+                      key={i}
+                      onClick={open}
+                      className={`${
+                        menuWidth === "w-full" ? "pl-3 " : "pl-4"
+                      } relative flex gap-3 items-center capitalize item  transitions hover:font-medium hover:bg-[#fff] px-3 py-3 w-full hover:rounded-2xl cursor-pointer`}
+                    >
+                      <img
+                        src={item?.icon}
+                        alt={`Icon for ${item?.name}`}
+                        className={`w-6 h-6 `}
+                      />
+                      <span
+                        className={`lg:text-[14px] text-[14px]`}
+                      >
+                        {item?.name}
+                      </span>
+                    </li>
+                  );
+                })}
             </ul>
           </div>
+          {menuWidth === "w-full" && (
+            <div
+              ref={alt_menu}
+              className="ml-[288px] opacity-0 fixed left-0 top-0 pt-32 right-0 transition-all  ease-out  bg-[#f5f5f5] w-auto  grid grid-cols-12 gap-3 h-full pr-6"
+            >
+              <div className="col-span-10 h-full">
+                <div className="w-full ">
+                  {category?.map((elem) =>
+                    elem?.submenu?.map((curr) => (
+                      <div
+                        key={curr?.name}
+                        className=" float-left w-[25%] mb-4"
+                      >
+                        <h2 className="font-bold capitalize text-[16px] mb-4">
+                          {curr?.name}
+                        </h2>
+                        <ul className="flex flex-col gap-2">
+                          {curr?.categoryname?.map((elem, i) => (
+                            <li
+                              className="capitalize py-1 text-[#333] cursor-pointer hover:font-semibold transitions"
+                              key={i}
+                            >
+                              {elem?.name}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    ))
+                  )}
+                </div>
+              </div>
+              <div className="col-span-2 ">
+                <div className="flex flex-col gap-3">
+                  <img
+                    className="w-[250px] object-cover"
+                    src="/santa1.png"
+                    alt=""
+                  />
+                  <img
+                    className="w-[250px] object-cover"
+                    src="/santa2.png"
+                    alt=""
+                  />
+                </div>
+              </div>
+            </div>
+          )}
         </div>
       </main>
     </>
@@ -363,3 +415,21 @@ const LeftSIdebar: React.FC = () => {
 };
 
 export default LeftSIdebar;
+
+{
+  /* <ul
+className={`absolute left-[120%] z-[-10] top-0 w-max gap-5  ${
+  menuWidth === "w-full" ? "flex" : "hidden"
+}`}
+>
+{item &&
+  item?.submenu?.map((elem, i) => (
+    <li
+      key={i}
+      className="flex flex-wrap flex-col w-full  border-2 border-red-600"
+    >
+      <h3 className="font-bold mb-3">{elem?.name}</h3>
+    </li>
+  ))}
+</ul> */
+}
