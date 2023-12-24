@@ -23,6 +23,7 @@ const MobileSidebar: React.FC<IconsProps> = ({ show, shows }) => {
   return (
     <>
       <div
+       onClick={shows} 
         className={`mobile-menu-overlay overflow-x-hidden transitions block fixed left-[0]  top-[0] bottom-[0] right-[0] z-[100] bg-[#191919bf] ${
           show ? "visible opacity-100" : "opacity-0 invisible "
         }`}
