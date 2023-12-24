@@ -43,14 +43,14 @@ const MobileSidebar: React.FC<IconsProps> = ({ show, shows }) => {
                 key={i}
               >
                 <div
-                  className="flex items-center justify-between w-full py-3 md:py-1 "
+                  className="flex items-center justify-between w-full py-3 md:py-1  "
                   onClick={handleOpen(item?.name)}
                 >
                   <div className="flex items-center gap-1">
                     <img className="w-6 h-6" src={item?.icon} alt="" />
                     <span className="text-xl lg:text-[16px] md:text-[13px]">{item.name}</span>
                   </div>
-                  <span>
+                  <span className="">
                     <FaCaretDown />
                   </span>
                 </div>
@@ -65,19 +65,19 @@ const MobileSidebar: React.FC<IconsProps> = ({ show, shows }) => {
                     openCategory === item?.name &&
                     item?.submenu?.map((elem, i) => (
                       <li
-                        className="px-6 py-[2px] flex items-start gap-2 md:gap-1 w-full flex-col"
+                        className="px-6 py-[2px] flex items-start gap-2 md:gap-1 w-full flex-col relative"
                         key={i}
                         onClick={() => handleOpenSub(elem?.name)}
                       >
-                        <div className="flex items-center gap-2 md:gap-0 w-full justify-between">
+                        <div className="flex items-center gap-2 md:gap-1 w-full ">
                           <span className=" inline-block font-semibold text-xl lg:text-[16px] md:text-[13px]">
                             {elem?.name}
                           </span>
-                          <span>
+                          <span className="">
                             <FaCaretDown />
                           </span>
                         </div>
-                        <ul>
+                        <ul className="">
                           {elem &&
                             openSubCategory === elem?.name &&
                             elem?.categoryname?.map((cur, i) => (
