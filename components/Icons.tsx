@@ -21,7 +21,7 @@ const Icons:React.FC<IconsProps> = ({shows}) => {
         <button className="bg-[#f5f5f5] dark:bg-[#191919] dark:text-white px-[10px] py-[15px] 2xl:py-[10px] md:py-[8px] md:px-[8px] flex items-center justify-center  outline-none font-bold text-[20px] xl:text-[16px] md:text-[14px] capitalize rounded-xl">
             en
         </button>
-        <button className="bg-[#f5f5f5] dark:bg-[#191919] px-[10px] sm:hidden py-[15px] 2xl:py-[10px] md:py-[8px] md:px-[8px] flex items-center justify-center  outline-none rounded-xl">
+        <button className="bg-[#f5f5f5] dark:bg-[#191919] px-[10px]  py-[15px] 2xl:py-[10px] md:py-[8px] md:px-[8px] flex items-center justify-center  outline-none rounded-xl">
             <GiScales className="text-[25px] xl:text-[20px] sm:text-[16px] dark:text-white" />
         </button>
         <button className="bg-[#f5f5f5] dark:bg-[#191919] px-[10px] py-[15px]  sm:hidden 2xl:py-[10px] md:py-[8px] md:px-[8px] flex items-center justify-center  outline-none rounded-xl">
