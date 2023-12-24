@@ -53,8 +53,8 @@ const BestSeller:React.FC = () => {
                     >
                       <div className="flex items-center gap-2">
                         <Image
-                          width={70}
-                          height={70}
+                          width={55}
+                          height={55}
                           src="/iphone.png"
                           alt=""
                           className="mt-[-25px] lg:!w-[50px]"
