@@ -22,7 +22,7 @@ const Navbar: React.FC = () => {
   return (
     <header className=" gap-4 2xl:gap-2 flex items-center flex-wrap justify-between">
       <div className="sm:order-[-2]  flex items-center gap-4">
-        <img src="/baku-logo.svg" className="hidden sm:block w-[40px] md:w-[30px]" alt="" />
+        <img src="/baku-logo.svg" className="hidden sm:block w-[40px] md:w-[30px]  asdasdasd" alt="" />
         <DarkMode />
       </div>
       <div className="sm:w-full sm:pt-2">

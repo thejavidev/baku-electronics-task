@@ -557,9 +557,5 @@ export const darkMode:darkModeType[]=[
   {
     icon:<CiLight />,
     text:"light"
-  },
-  {
-    icon:<FaDesktop  />,
-    text:"system"
   }
 ]

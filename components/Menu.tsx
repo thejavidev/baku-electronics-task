@@ -11,7 +11,7 @@ const Menu: React.FC = () => {
           menu?.map((item,i) => (
             <li
               key={i}
-              className={`hover:font-bold menu_li transition-all cursor-pointer  px-3 py-3 2xl:px-1 2xl:py-1 text-black dark:text-white relative everly_li`}
+              className={`hover:font-bold menu_li transition-all cursor-pointer    px-3 py-3 2xl:px-1 2xl:py-1 text-black dark:text-white relative everly_li`}
             >
               <div className="flex items-center gap-2">
                 <span className="xl:text-[14px] text-black dark:text-white"> {item?.name}</span>

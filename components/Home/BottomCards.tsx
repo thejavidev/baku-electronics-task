@@ -14,7 +14,7 @@ const BottomCards: React.FC = () => {
               <img
                 alt=""
                 src={elem?.src}
-                className="w-[130px] h-full lg:w-[90px]  object-cover absolute right-0"
+                className="w-[130px] h-full lg:w-[90px] aaa object-cover absolute right-0"
               />
               <div className="px-3 py-3 flex flex-col gap-2 items-start">
                 <h5 className="tetx-[14px] text-black dark:text-white">
