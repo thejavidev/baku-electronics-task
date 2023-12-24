@@ -32,7 +32,7 @@ const MobileSidebar: React.FC<IconsProps> = ({ show, shows }) => {
           show ? "opacity-100 left-0" : "opacity-0 left-[-100%]"
         } transitions overflow-y-scroll absolute h-full top-0 z-[300] bg-[#f5f5f5] dark:bg-[#191919] w-[300px] px-7 lg:px-3`}
       >
-        <button onClick={shows} className="absolute right-4 top-2">
+        <button onClick={shows} className="absolute right-1 top-2">
           <IoClose className="text-[30px] dark:text-white" />
         </button>
         <ul className="pt-20 lg:pt-10 gap-1 flex flex-col">
@@ -43,7 +43,7 @@ const MobileSidebar: React.FC<IconsProps> = ({ show, shows }) => {
                 key={i}
               >
                 <div
-                  className="flex items-center justify-between w-full py-3 md:py-1"
+                  className="flex items-center justify-between w-full py-3 md:py-1 "
                   onClick={handleOpen(item?.name)}
                 >
                   <div className="flex items-center gap-1">
@@ -55,7 +55,7 @@ const MobileSidebar: React.FC<IconsProps> = ({ show, shows }) => {
                   </span>
                 </div>
                 <ul
-                  className={`gap-2 md:gap-1 flex-col transitions2 ${
+                  className={`gap-2 md:gap-0 flex-col transitions2 ${
                     openCategory === item?.name
                       ? "flex visible h-full"
                       : " invisible h-0"
@@ -69,7 +69,7 @@ const MobileSidebar: React.FC<IconsProps> = ({ show, shows }) => {
                         key={i}
                         onClick={() => handleOpenSub(elem?.name)}
                       >
-                        <div className="flex items-center gap-2 md:gap-1">
+                        <div className="flex items-center gap-2 md:gap-0 w-full justify-between">
                           <span className=" inline-block font-semibold text-xl lg:text-[16px] md:text-[13px]">
                             {elem?.name}
                           </span>

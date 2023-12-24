@@ -9,7 +9,7 @@ const DarkMode = () => {
           darkMode?.map((item, i) => (
             <button
               key={i}
-              className={` px-2 py-2 text-[25px] xl:text-[17px] dark:text-white `}
+              className={` px-2 py-2 md:px-1 md:py-1 text-[25px] xl:text-[17px] md:text-[15px] dark:text-white `}
             >
               {item?.icon}
             </button>
