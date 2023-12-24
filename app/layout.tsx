@@ -11,14 +11,16 @@ export const metadata: Metadata = {
   description: "task",
 };
 
+
+
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
-    <html lang="az">
-      <body className={inter.className}>
+    <html lang="en">
+      <body className={`${inter.className} bg-white dark:bg-[#2a2a2a]`}>
         <LeftSIdebar />
         <main className="px-4 py-4 ml-[288px] md:ml-0">
           <Navbar />

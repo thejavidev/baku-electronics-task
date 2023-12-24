@@ -13,8 +13,8 @@ export type MenuType = {
   name?: string;
   icon?:any,
   submenu?: Array<{
-    id: number;
-    name: string;
+    id?: number;
+    name?: string;
 
   }>;
 }[];
@@ -30,4 +30,15 @@ export interface Producs{
   categories?: string;
   oldPrice?: number;
   newPrice?: number;
+}
+export interface Cardtype{
+  id?:number,
+  src?:string,
+  title?:string,
+  text?:string,
+  btnText?:string
+}
+export interface darkModeType{
+  icon?:any,
+  text:string
 }
