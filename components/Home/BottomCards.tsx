@@ -9,7 +9,7 @@ const BottomCards: React.FC = () => {
           cards?.map((elem, i) => (
             <div
               key={i}
-              className="col-span-4 md:col-span-6 sm:col-span-12 relative px-3 py-0  bg-[#f5f5f5] dark:bg-[#191919] rounded-[24px] w-full h-[200px] sm:h-auto overflow-hidden"
+              className="col-span-4 md:col-span-6 sm:col-span-12 transition-all hover:scale-[1.02] relative px-3 py-0  bg-[#f5f5f5] dark:bg-[#191919] rounded-[24px] w-full h-[200px] sm:h-auto overflow-hidden"
             >
               <img
                 alt=""

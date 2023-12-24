@@ -49,7 +49,7 @@ const BestSeller:React.FC = () => {
                   products?.map((elem,i) => (
                     <li
                       key={i}
-                      className="flex items-center gap-2  md:gap-1 bg-[#F7F7F7] dark:bg-[#191919] px-3 py-3 justify-between w-full rounded-[10.034px]"
+                      className="flex items-center gap-2  md:gap-1 transition-all hover:scale-[1.02]  bg-[#F7F7F7] dark:bg-[#191919] px-3 py-3 justify-between w-full rounded-[10.034px]"
                     >
                       <div className="flex items-center gap-2">
                         <Image
